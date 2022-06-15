@@ -36,20 +36,20 @@ class Player {
 }
 
 class Platform {
-    constructor ({x, y, image}) {
+    constructor ({x, y}) {
         this.position = {
             x,
-            y
+            y,
         }
 
-        this.width = 500
-        this.height = 40
+        this.width = 700
+        this.height = 100
 
-        this.image = image
+        this.image = new Image()
+        this.image.src = "./platform.png"
     }
     draw () {
-        ctx.fillStyle = "blue"
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
     }
 }
 
@@ -57,7 +57,7 @@ class Platform {
 let player = new Player()
 
 // Creacion de plataformas 
-let platforms = [new Platform({x: 100, y: 940}), new Platform({x: 600, y : 840})]
+let platforms = [new Platform({x: 100, y: 500,}), new Platform({x: 600, y : 940}), new Platform({x: 1200, y: 940})]
 
 // Teclas
 const keys = {
@@ -76,11 +76,11 @@ let victorycount = 0
 // Función que crea el game over
 function init() {
  player = new Player()
- platforms = [new Platform({x: 100, y: 940}), new Platform({x: 150, y : 840})]
-
+ platforms = [new Platform({x: 100, y: 500,}), new Platform({x: 600, y : 940}), new Platform({x: 1200, y: 940})]
 
  victorycount = 0
 }
+
 
 function animate() {
     requestAnimationFrame(animate);
@@ -88,7 +88,7 @@ function animate() {
     player.update()
     platforms.forEach(platform => {
         platform.draw()
-    })
+    });
 
     if (keys.right.pressed && player.position.x < 400) {
         player.velocity.x = 5
@@ -124,10 +124,12 @@ function animate() {
 
     // Perder
     if (player.position.y > canvas.height) {
+        console.log("you lose")
         init();
     }
 
 }
+
 animate();
 
 
@@ -144,7 +146,7 @@ addEventListener("keydown", ({keyCode}) => {
             keys.right.pressed = true
             break
         case 87:
-            player.velocity.y -= 15
+            player.velocity.y -= 10
             break;
     }
 });
