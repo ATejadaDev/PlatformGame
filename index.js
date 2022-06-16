@@ -1,8 +1,8 @@
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
-const canvasDiv = document.getElementById("canvas-game-div")
-const startButton = document.getElementById("start-button")
-const startDiv = document.getElementById("start-div")
+const canvasDiv = document.getElementById("canvas-game-div");
+const startButton = document.getElementById("start-button");
+const startDiv = document.getElementById("start-div");
 const gameoverDiv = document.getElementById("game-over-div");
 const restartButton = document.getElementById("restart-button");
 const backMenu = document.getElementById("back-menu");
@@ -155,7 +155,8 @@ let platforms = [new Platform({x: 0, y: 940,}),
     new Platform3({x: 4450, y: 800}),
     new Platform3({x: 4650, y: 700}),
     new Platform3({x: 4850, y: 600}),
-    new Platform({x: 5000, y: 500}),]
+    new Platform({x: 5000, y: 500}),
+    new Platform({x: 5600, y: 500}),]
 
 // Teclas
 const keys = {

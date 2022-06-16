@@ -11,6 +11,8 @@ canvas{
 #start-div{
     background-image: url(./background2.png);
     background-size: cover;
+    width: 2000px;
+    height: 1200px;
 }
 
 h1{
@@ -18,7 +20,7 @@ h1{
     font-size: 80px;
 }
 #start-button{
-    margin-top: 500px;
+    margin-top: 400px;
     margin-left: 900px;
     height: 50px;
     width: 100px;
