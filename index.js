@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -22,6 +23,7 @@ class Player {
         this.image = new Image();
         this.image.src = "./sprite_idle.png"
         this.frames = 0
+        this.frames2 = 0
     }
 
     draw() {
@@ -38,7 +40,11 @@ class Player {
     }
 
     update() {
-        this.frames++
+        //this.frames++
+        this.frames2++
+        if (this.frames2 % 9 === 0) {
+            this.frames++
+        }
         if (this.frames >= 4) this.frames = 0
         this.draw()
         this.position.x += this.velocity.x
