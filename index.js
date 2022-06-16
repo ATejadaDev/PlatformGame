@@ -16,16 +16,30 @@ class Player {
             y: 1
         }
 
-        this.width = 40
-        this.height = 40
+        this.width = 75
+        this.height = 100
+
+        this.image = new Image();
+        this.image.src = "./sprite_idle.png"
+        this.frames = 0
     }
 
     draw() {
-        ctx.fillStyle = "orange";
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+        ctx.drawImage(
+        this.image,
+        32 * this.frames,
+        0,
+        32,
+        32,
+        this.position.x, 
+        this.position.y, 
+        this.width, 
+        this.height)
     }
 
     update() {
+        this.frames++
+        if (this.frames > 4) this.frames = 0
         this.draw()
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
@@ -46,7 +60,42 @@ class Platform {
         this.height = 100
 
         this.image = new Image()
-        this.image.src = "./platform.png"
+        this.image.src = "./Grass.png"
+    }
+    draw () {
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+    }
+}
+
+class Platform2 {
+    constructor ({x, y}) {
+        this.position = {
+            x,
+            y,
+        }
+
+        this.width = 100
+        this.height = 100
+
+        this.image = new Image()
+        this.image.src = "./Grass.png"
+    }
+    draw () {
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+    }
+}
+class Platform3 {
+    constructor ({x, y}) {
+        this.position = {
+            x,
+            y,
+        }
+
+        this.width = 30
+        this.height = 30
+
+        this.image = new Image()
+        this.image.src = "./Grass.png"
     }
     draw () {
         ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
@@ -57,7 +106,17 @@ class Platform {
 let player = new Player()
 
 // Creacion de plataformas 
-let platforms = [new Platform({x: 100, y: 500,}), new Platform({x: 600, y : 940}), new Platform({x: 1200, y: 940})]
+let platforms = [new Platform({x: 0, y: 940,}), 
+    new Platform2({x: 700, y: 800}), 
+    new Platform2({x: 800, y: 700}), 
+    new Platform2({x: 900, y: 550}), 
+    new Platform2({x: 1150, y: 400}), 
+    new Platform2({x: 1550, y: 400}),
+    new Platform2({x: 1920, y: 350}),
+    new Platform2({x: 2350, y: 400}),
+    new Platform3({x: 2650, y: 410}),
+    new Platform3({x: 2950, y: 410}),
+    new Platform3({x: 3250, y: 410}),]
 
 // Teclas
 const keys = {
@@ -76,7 +135,17 @@ let victorycount = 0
 // Función que crea el game over
 function init() {
  player = new Player()
- platforms = [new Platform({x: 100, y: 500,}), new Platform({x: 600, y : 940}), new Platform({x: 1200, y: 940})]
+ platforms = [new Platform({x: 0, y: 940,}), 
+    new Platform2({x: 700, y: 800}), 
+    new Platform2({x: 800, y: 700}), 
+    new Platform2({x: 900, y: 550}), 
+    new Platform2({x: 1150, y: 400}), 
+    new Platform2({x: 1550, y: 400}),
+    new Platform2({x: 1920, y: 350}),
+    new Platform2({x: 2350, y: 400}),
+    new Platform3({x: 2650, y: 410}),
+    new Platform3({x: 2950, y: 410}),
+    new Platform3({x: 3250, y: 410}),]
 
  victorycount = 0
 }
@@ -92,7 +161,7 @@ function animate() {
 
     if (keys.right.pressed && player.position.x < 400) {
         player.velocity.x = 5
-    } else if (keys.left.pressed && player.position.x > 100) {
+    } else if ((keys.left.pressed && player.position.x > 100) || keys.left.pressed && victorycount === 0 && player.position.x > 0) {
         player.velocity.x = -5
     } else {
         player.velocity.x = 0
@@ -102,7 +171,7 @@ function animate() {
             platforms.forEach(platform => {
                 platform.position.x -= 5
             })
-        } else if (keys.left.pressed) {
+        } else if (keys.left.pressed && victorycount > 0) {
             victorycount -= 5
             platforms.forEach(platform => {
                 platform.position.x += 5
@@ -146,7 +215,7 @@ addEventListener("keydown", ({keyCode}) => {
             keys.right.pressed = true
             break
         case 87:
-            player.velocity.y -= 10
+            player.velocity.y -= 12
             break;
     }
 });
