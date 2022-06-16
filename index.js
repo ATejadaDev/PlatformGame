@@ -1,7 +1,13 @@
-
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
+const canvasDiv = document.getElementById("canvas-game-div")
+const startButton = document.getElementById("start-button")
+const startDiv = document.getElementById("start-div")
+const gameoverDiv = document.getElementById("game-over-div");
+const restartButton = document.getElementById("restart-button");
+const backMenu = document.getElementById("back-menu");
 
+let jumpaudio = new Audio ("./jump_sound.mp3");
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
@@ -191,6 +197,7 @@ function init() {
 
 
  victorycount = 0
+ restartButton.classList.add("hidden");
 }
 
 
@@ -232,13 +239,18 @@ function animate() {
 })
  // Ganar
     if (victorycount > 2000) {
-        console.log("you win")
+        gameoverDiv.classList.remove("hidden");
+        canvasDiv.classList.add("hidden");
+        restartButton.classList.remove("hidden");
+        backMenu.classList.remove("hidden");
     }
 
     // Perder
     if (player.position.y > canvas.height) {
-        console.log("you lose")
-        init();
+        gameoverDiv.classList.remove("hidden");
+        canvasDiv.classList.add("hidden");
+        restartButton.classList.remove("hidden");
+        backMenu.classList.remove("hidden");
     }
 
 }
@@ -260,6 +272,7 @@ addEventListener("keydown", ({keyCode}) => {
             break
         case 87:
             player.velocity.y -= 12
+            jumpaudio.play();
             break;
     }
 });
@@ -278,4 +291,21 @@ addEventListener("keyup", ({keyCode}) => {
             player.velocity.y -= 0
             break;
     }
+});
+
+startButton.addEventListener("click", function(){
+    animate();
+    canvasDiv.classList.remove("hidden");
+    startDiv.classList.add("hidden");
+});
+
+restartButton.addEventListener("click", function(){
+    //document.location.reload();
+    init();
+    canvasDiv.classList.remove("hidden");
+    backMenu.classList.add("hidden");
+});
+
+backMenu.addEventListener("click", function(){
+    document.location.reload();
 });

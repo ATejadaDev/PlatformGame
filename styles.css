@@ -1,5 +1,21 @@
-body{
+canvas{
     margin: 0;
     background-image: url(./background2.png);
     background-size: cover;
+}
+
+.hidden {
+    display: none;
+}
+
+#start-div{
+    background-image: url(./background2.png);
+    background-size: cover;
+}
+
+#start-button{
+    margin-top: 500px;
+    margin-left: 800px;
+    border: 5px solid green;
+    padding: 10px;
 }
