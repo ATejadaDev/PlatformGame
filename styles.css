@@ -13,9 +13,14 @@ canvas{
     background-size: cover;
 }
 
+h1{
+    text-align: center;
+    font-size: 80px;
+}
 #start-button{
     margin-top: 500px;
-    margin-left: 800px;
+    margin-left: 900px;
+    height: 50px;
+    width: 100px;
     border: 5px solid green;
-    padding: 10px;
 }
