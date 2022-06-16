@@ -39,7 +39,7 @@ class Player {
 
     update() {
         this.frames++
-        if (this.frames > 4) this.frames = 0
+        if (this.frames >= 4) this.frames = 0
         this.draw()
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
@@ -102,11 +102,30 @@ class Platform3 {
     }
 }
 
+class PlatformCloud {
+    constructor ({x, y}) {
+        this.position = {
+            x,
+            y,
+        }
+
+        this.width = 700
+        this.height = 300
+
+        this.image = new Image()
+        this.image.src = "./cloud1.png"
+    }
+    draw () {
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+    }
+}
+
 // Creación de jugador
 let player = new Player()
 
 // Creacion de plataformas 
-let platforms = [new Platform({x: 0, y: 940,}), 
+let platforms = [new Platform({x: 0, y: 940,}),
+    new PlatformCloud({x: 200, y: 50}), 
     new Platform2({x: 700, y: 800}), 
     new Platform2({x: 800, y: 700}), 
     new Platform2({x: 900, y: 550}), 
@@ -143,7 +162,8 @@ let victorycount = 0
 // Función que crea el game over
 function init() {
  player = new Player()
- platforms = [new Platform({x: 0, y: 940,}), 
+ platforms = [new Platform({x: 0, y: 940,}),
+    new PlatformCloud({x: 200, y: 50}), 
     new Platform2({x: 700, y: 800}), 
     new Platform2({x: 800, y: 700}), 
     new Platform2({x: 900, y: 550}), 
