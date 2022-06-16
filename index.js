@@ -222,7 +222,7 @@ function animate() {
         player.velocity.x = 0
 
         if (keys.right.pressed) {
-            victorycount += 100
+            victorycount += 1
             console.log(victorycount)
             platforms.forEach(platform => {
                 platform.position.x -= 5
