@@ -129,10 +129,10 @@ h1{
 
 
 #sad_face{
-  margin-left: 850px;
+  margin-left: 750px;
   margin-bottom: 10px;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
 }
 /* Restart button */
 #restart-button {
@@ -218,7 +218,7 @@ h1{
     width: 400px;
     height: 400px;
     display: block;
-    margin-left: auto;
+    margin-left: 700px;
     margin-right: auto;
     align-items: center;
 }
