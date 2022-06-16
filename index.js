@@ -6,6 +6,10 @@ const startDiv = document.getElementById("start-div");
 const gameoverDiv = document.getElementById("game-over-div");
 const restartButton = document.getElementById("restart-button");
 const backMenu = document.getElementById("back-menu");
+const sadFace = document.getElementById("sad_face")
+const victory = document.getElementById("victory");
+const backMenu2 = document.getElementById("back-menu2");
+const hiddenh1 = document.getElementById("hiddenh1");
 
 let jumpaudio = new Audio ("./jump_sound.mp3");
 canvas.width = window.innerWidth
@@ -218,7 +222,7 @@ function animate() {
         player.velocity.x = 0
 
         if (keys.right.pressed) {
-            victorycount += 1
+            victorycount += 100
             console.log(victorycount)
             platforms.forEach(platform => {
                 platform.position.x -= 5
@@ -240,10 +244,9 @@ function animate() {
 })
  // Ganar
     if (victorycount > 2000) {
-        gameoverDiv.classList.remove("hidden");
+        backMenu2.classList.remove("hidden");
+        victory.classList.remove("hidden");
         canvasDiv.classList.add("hidden");
-        restartButton.classList.remove("hidden");
-        backMenu.classList.remove("hidden");
     }
 
     // Perder
@@ -252,6 +255,8 @@ function animate() {
         canvasDiv.classList.add("hidden");
         restartButton.classList.remove("hidden");
         backMenu.classList.remove("hidden");
+        hiddenh1.classList.remove("hidden");
+        sadFace.classList.remove("hidden");
     }
 
 }
@@ -301,12 +306,17 @@ startButton.addEventListener("click", function(){
 });
 
 restartButton.addEventListener("click", function(){
-    //document.location.reload();
     init();
     canvasDiv.classList.remove("hidden");
     backMenu.classList.add("hidden");
+    sadFace.classList.add("hidden");
+    hiddenh1.classList.add("hidden");
 });
 
 backMenu.addEventListener("click", function(){
+    document.location.reload();
+});
+
+backMenu2.addEventListener("click", function(){
     document.location.reload();
 });

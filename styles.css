@@ -26,3 +26,67 @@ h1{
     width: 100px;
     border: 5px solid green;
 }
+
+#sad_face{
+    height: 400px;
+    width: 400px;
+    margin-left: 700px;
+}
+
+#restart-button{
+    flex-wrap: wrap;
+    height: 100px;
+    width: 100px;
+}
+
+#hiddenh1{
+    display: none;
+}
+
+#happy_face{
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+/* Boton de victoria */
+#back-menu2{
+    display: block;
+    margin-left: 725px;
+    margin-right: auto;
+    margin-top: 100px;
+    align-items: center;
+    width: 450px;
+    height: 90px;
+    appearance: none;
+    background-color: #FFFFFF;
+    border-radius: 40em;
+    border-style: none;
+    box-shadow: #ADCFFF 0 -12px 6px inset;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -.24px;
+    outline: none;
+    padding: 1rem 1.3rem;
+    quotes: auto;
+    text-align: center;
+    text-decoration: none;
+    transition: all .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#back-menu2:hover {
+  background-color: #FFC229;
+  box-shadow: #FF6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
