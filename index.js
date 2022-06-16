@@ -116,7 +116,15 @@ let platforms = [new Platform({x: 0, y: 940,}),
     new Platform2({x: 2350, y: 400}),
     new Platform3({x: 2650, y: 410}),
     new Platform3({x: 2950, y: 410}),
-    new Platform3({x: 3250, y: 410}),]
+    new Platform3({x: 3250, y: 410}),
+    new Platform2({x: 3580, y: 400}),
+    new Platform2({x: 3850, y: 395}),
+    new Platform2({x: 3850, y: 900}),
+    new Platform3({x: 4250, y: 900}),
+    new Platform3({x: 4450, y: 800}),
+    new Platform3({x: 4650, y: 700}),
+    new Platform3({x: 4850, y: 600}),
+    new Platform({x: 5000, y: 500}),]
 
 // Teclas
 const keys = {
@@ -145,7 +153,16 @@ function init() {
     new Platform2({x: 2350, y: 400}),
     new Platform3({x: 2650, y: 410}),
     new Platform3({x: 2950, y: 410}),
-    new Platform3({x: 3250, y: 410}),]
+    new Platform3({x: 3250, y: 410}),
+    new Platform2({x: 3580, y: 400}),
+    new Platform2({x: 3850, y: 395}),
+    new Platform2({x: 3850, y: 900}),
+    new Platform3({x: 4250, y: 900}),
+    new Platform3({x: 4450, y: 800}),
+    new Platform3({x: 4650, y: 700}),
+    new Platform3({x: 4850, y: 600}),
+    new Platform({x: 5000, y: 500}),]
+
 
  victorycount = 0
 }
@@ -167,7 +184,8 @@ function animate() {
         player.velocity.x = 0
 
         if (keys.right.pressed) {
-            victorycount += 5
+            victorycount += 1
+            console.log(victorycount)
             platforms.forEach(platform => {
                 platform.position.x -= 5
             })
