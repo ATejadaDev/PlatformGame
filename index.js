@@ -20,7 +20,7 @@ class Player {
     constructor() {
         this.position = {
             x: 100,
-            y: 100
+            y: 0
         }
         this.velocity = {
             x: 0,
@@ -136,6 +136,23 @@ class PlatformCloud {
     }
 }
 
+class Platformcup {
+    constructor ({x, y}) {
+        this.position = {
+            x,
+            y,
+        }
+
+        this.width = 100
+        this.height = 100
+
+        this.image = new Image()
+        this.image.src = "./cup.png"
+    }
+    draw () {
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+    }
+}
 // Creación de jugador
 let player = new Player()
 
@@ -160,7 +177,8 @@ let platforms = [new Platform({x: 0, y: 940,}),
     new Platform3({x: 4650, y: 700}),
     new Platform3({x: 4850, y: 600}),
     new Platform({x: 5000, y: 500}),
-    new Platform({x: 5600, y: 500}),]
+    new Platform({x: 5600, y: 500}),
+    new Platformcup({x:5900, y: 400})]
 
 // Teclas
 const keys = {
@@ -198,7 +216,9 @@ function init() {
     new Platform3({x: 4450, y: 800}),
     new Platform3({x: 4650, y: 700}),
     new Platform3({x: 4850, y: 600}),
-    new Platform({x: 5000, y: 500}),]
+    new Platform({x: 5000, y: 500}),
+    new Platform({x: 5600, y: 500}),
+    new Platformcup({x:5900, y: 400})]
 
 
  victorycount = 0
@@ -243,7 +263,7 @@ function animate() {
     }
 })
  // Ganar
-    if (victorycount > 2000) {
+    if (victorycount > 1100) {
         backMenu2.classList.remove("hidden");
         victory.classList.remove("hidden");
         canvasDiv.classList.add("hidden");

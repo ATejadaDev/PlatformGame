@@ -1,3 +1,4 @@
+
 canvas{
     margin: 0;
     background-image: url(./background2.png);
@@ -12,14 +13,16 @@ canvas{
     background-image: url(./background2.png);
     background-size: cover;
     width: 2000px;
-    height: 1200px;
+    height: 1000px;
 }
 
 h1{
     text-align: center;
     font-size: 80px;
+    margin-top: 50px;
 }
 
+/* Start button */
 #start-button,
 #start-button:after {
   width: 150px;
@@ -37,6 +40,10 @@ h1{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  display: flex;
+  justify-content: center;
+  top: 30%; 
+  left: 45%;
 }
 
 #start-button:after {
@@ -120,31 +127,91 @@ h1{
   }
 } 
 
-/*
-#start-button{
-    margin-top: 400px;
-    margin-left: 900px;
-    height: 50px;
-    width: 100px;
-    border: 5px solid green;
-}
-*/
+
 #sad_face{
-    height: 400px;
-    width: 400px;
-    margin-left: 700px;
+  margin-left: 850px;
+  margin-bottom: 100px;
+  width: 200px;
+  height: 200px;
 }
-
-#restart-button{
-    flex-wrap: wrap;
-    height: 100px;
-    width: 100px;
-}
-
-#hiddenh1{
-    display: none;
-}
-
+/* Restart button */
+#restart-button {
+  padding: 0.8em 1.8em;
+  border: 2px solid #17C3B2;
+  position: relative;
+  margin-top: 100px;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: .3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #17C3B2;
+  height: 65px;
+ }
+ 
+ #restart-button::before {
+  content: '';
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #17C3B2;
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+ }
+ 
+ #restart-button:hover::before {
+  width: 105%;
+ }
+ 
+ #restart-button:hover {
+  color: #111;
+ }
+ /*Back to menu button */
+ #back-menu {
+  padding: 0.8em 1.8em;
+  border: 2px solid #17C3B2;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: .3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #17C3B2;
+  height: 65px;
+ }
+ 
+ #back-menu::before {
+  content: '';
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #17C3B2;
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+ }
+ 
+ #back-menu:hover::before {
+  width: 105%;
+ }
+ 
+ #back-menu:hover {
+  color: #111;
+ }
+ 
 #happy_face{
     width: 400px;
     height: 400px;
